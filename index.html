@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header class="bg-primary d-flex">
+    <h1 class="text-light p-2 m-3">Weather Dashboard</h1>
+    <p class="text-light ml-auto p-2 m-3 align-self-center">By: <a href="https://github.com/santiagov916" target="_blank" class="text-light font-weight-bold">Santiago Venegas</a></p>
+    </header>
+
+    <!-- container for body -->
+    <div class="container-fluid">
+
+        <div class="row">
+
+    <!-- container for the left side -->
+    <div class="d-flex flex-column container col-4 search-container border-right">
+     
+            <h3 class="bold text-center mt-2">Search for a City</h3>
+  
+        <div class="container d-flex flex-column">
+            <input class="rounded-light m-2" placeholder="San Jose">
+            <button class="m-2 btn btn-primary">Search</button>
+
+            <div class="container recents mt-3 border-top">
+                <div class="card m-3 bg-dark">
+                    <div class="card-body text-center">
+                       <p class="card-text text-light">sample city</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 bg-dark">
+                    <div class="card-body text-center">
+                        <p class="card-text text-light">sample city</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 bg-dark">
+                    <div class="card-body text-center">
+                        <p class="card-text text-light">sample city</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 bg-dark">
+                    <div class="card-body text-center">
+                        <p class="card-text text-light">sample city</p>
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+
+
+    </div>
+
+    <!-- container for the right side -->
+   <div class="container-fluid d-flex col-8 flex-column">
+
+    <!-- container for todays forecast -->
+    <div class="row">
+
+        <div class="col-12 mr-auto show-city-name border-bottom">
+            <h3>Todays forecast for: <span class="search-city">Sample City </span></h3>
+            <ul style="list-style: none;" class="p-2 text-left">
+                <li>asdf</li>
+                <li>asdf</li>
+                <li>asdf</li>
+                <li>asdf</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- container for 5 day forecast -->
+    <div class="row">
+ 
+             <div class="col-6 mr-auto weekly-title">
+                 <h3 class="text-center">5 day forecast</h3>
+             </div>
+ 
+             <div class="row m-2 justify-content-betweeen">
+ 
+ 
+            <div class="col-4 p-1">
+             <div class="card m-2 w-100">
+                 <img src="" alt="" class="card-img-top">
+                 <div class="card-body p-1">
+                     <h3 class="card-title text-center border-bottom">asdfa</h3>
+                     <ul style="list-style: none;" class="p-2 text-left">
+                         <li>asdf: asdfasdfasdfa</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                     </ul>
+                 </div>
+                </div>
+            </div>
+ 
+            <div class="col-4 p-1">
+             <div class="card m-2 w-100">
+                 <img src="" alt="" class="card-img-top">
+                 <div class="card-body p-1">
+                     <h3 class="card-title text-center border-bottom">asdfa</h3>
+                     <ul style="list-style: none;" class="p-2 text-left">
+                         <li>asdf: asdfasdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                     </ul>
+                 </div>
+                </div>
+            </div>
+ 
+            <div class="col-4 p-1">
+             <div class="card m-2 w-100">
+                 <img src="" alt="" class="card-img-top">
+                 <div class="card-body p-1">
+                     <h3 class="card-title text-center border-bottom">asdfa</h3>
+                     <ul style="list-style: none;" class="p-2 text-left">
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                     </ul>
+                 </div>
+                </div>
+            </div>
+ 
+            <div class="col-4 p-1">
+             <div class="card m-2 w-100">
+                 <img src="" alt="" class="card-img-top">
+                 <div class="card-body p-1">
+                     <h3 class="card-title text-center border-bottom">asdfa</h3>
+                     <ul style="list-style: none;" class="p-2 text-left">
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                         <li>asdf</li>
+                     </ul>
+                 </div>
+                </div>
+            </div>
+ 
+            </div>
+           
+    </div>
+   </div>
+
+    </div>
+
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
