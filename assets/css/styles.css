@@ -1,0 +1,22 @@
+.card {
+    font-size: 12px;
+}
+
+.card-img-hot {
+    background-image: url('../images/hotday.jpeg');
+    background-position: center;
+    height: 5rem;
+}
+
+.card-img-cloudy {
+    background-image: url('../images/cloudyday.jpeg');
+    background-position: center;
+    height: 5rem;
+}
+
+.card-img-rainy {
+    background-image: url('../images/rainyday.jpeg');
+    background-position: center;
+    height: 5rem;
+}
+
