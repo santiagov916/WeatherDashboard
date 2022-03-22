@@ -2,21 +2,11 @@
     font-size: 12px;
 }
 
-.card-img-hot {
-    background-image: url('../images/hotday.jpeg');
-    background-position: center;
-    height: 5rem;
+.todays-list {
+    list-style: none;
 }
 
-.card-img-cloudy {
-    background-image: url('../images/cloudyday.jpeg');
-    background-position: center;
-    height: 5rem;
+.icon {
+    height: 4rem;
+    width: 4rem;
 }
-
-.card-img-rainy {
-    background-image: url('../images/rainyday.jpeg');
-    background-position: center;
-    height: 5rem;
-}
-

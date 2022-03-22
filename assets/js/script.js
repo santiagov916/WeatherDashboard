@@ -17,11 +17,31 @@ dayjs.extend(window.dayjs_plugin_timezone);
 // componets for saving already searchedcity for history
 
 
+function dispalyTodaysWeather(city, weather, timezone) {
 
-// function for a histoy search`
+    var date = dayjs().tz(timezone).format('M/D/YYYY');
+    var temp = weather.temp;
+    var wind = weather.wind_speed;
+    var humidity = weather.humidity;
 
-function dispalyTodaysWeather() {
+    var todaysDate = document.querySelector('#todays-date');
+    todaysDate.setAttribute('class', 'ml-5 font-weight-bold');
+    todaysDate.textContent = `${date}`;
 
+    var listToday = document.createElement('ul');
+    listToday.setAttribute('class', 'todays-list');
+
+    var tempList = document.createElement('li');
+    tempList.textContent = `Temp: ${temp}`;
+
+    var windList = document.createElement('li');
+    windList.textContent = `Wind Speed: ${wind}mph`;
+
+    var humidityList = document.createElement('li');
+    humidityList.textContent = `Humidity: ${humidity}%`;
+
+    listToday.append(tempList, windList, humidityList);
+    todaysForecastContainer.append(listToday);
 }
 
 function forCreatingForecastCard(forecast, timezone) {
@@ -33,6 +53,9 @@ function forCreatingForecastCard(forecast, timezone) {
     var wind = forecast.wind_speed;
     var humidity = forecast.humidity;
 
+    var iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+
+    var iconDescription = forecast.weather[0].description;
 
     var cardPlacer = document.createElement('div');
     cardPlacer.setAttribute('class', 'col-4 p-1');
@@ -40,8 +63,10 @@ function forCreatingForecastCard(forecast, timezone) {
     var actualCard = document.createElement('div');
     actualCard.setAttribute('class', 'card m-2 w-100');
 
-    var cardImg = document.createElement('span');
-    cardImg.setAttribute('class', 'card-img-rainy');
+    var cardImg = document.createElement('img');
+    cardImg.setAttribute('src', iconUrl);
+    cardImg.setAttribute('alt', iconDescription);
+    cardImg.classList.add('icon');
 
     var cardBody = document.createElement('div');
     cardBody.setAttribute('class', 'card-body p-1');
@@ -64,7 +89,8 @@ function forCreatingForecastCard(forecast, timezone) {
     var humiditySpace = document.createElement('p');
     humiditySpace.setAttribute('class', 'card-text p-2 text-left');
     humiditySpace.textContent = `Humidity: ${humidity} %`;
-
+    console.log(tempMin)
+    
     var dateOf = document.createElement('h5');
     dateOf.setAttribute('class', 'card-title text-primary');
     dateOf.textContent =dayjs.unix(unixTs).tz(timezone).format('M/D/YYYY');
