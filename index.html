@@ -13,12 +13,12 @@
     </header>
 
     <!-- container for body -->
-<div class="container-fluid">
+    <div class="container-fluid">
 
-    <div class="row">
+        <div class="row">
 
     <!-- container for the left side -->
-        <div class="d-flex flex-column container col-4 search-container border-right">
+    <div class="d-flex flex-column container col-4 search-container border-right">
      
             <h3 class="bold text-center mt-2">Search for a City</h3>
   
@@ -33,82 +33,56 @@
                     </div>
                 </div>
 
-                <div class="card m-3 bg-dark">
-                    <div class="card-body text-center">
-                        <p class="card-text text-light">sample city</p>
-                    </div>
-                </div>
-
-                <div class="card m-3 bg-dark">
-                    <div class="card-body text-center">
-                        <p class="card-text text-light">sample city</p>
-                    </div>
-                </div>
-
-                <div class="card m-3 bg-dark">
-                    <div class="card-body text-center">
-                        <p class="card-text text-light">sample city</p>
-                    </div>
-                </div>
-
             </div>
         
         </div>
 
 
-        </div>
-
-    <!-- container for the right side -->
-        <div class="container-fluid d-flex col-8 flex-column">
-
-    <!-- container for todays forecast -->
-    <div class="row" id="todays-forecast">
-
-        <!-- create these elements in JS -->
-
-     
     </div>
 
+    <!-- container for the right side -->
+   <div class="container-fluid d-flex col-8 flex-column">
 
+    <!-- container for todays forecast -->
+    <div class="row">
+
+        <div class="col-12 mr-auto show-city-name border-bottom">
+            <h3>Todays forecast for: <span id="city-title"></span></h3>
+            <span id="todays-date"></span>
+        
+        </div>
+    </div>
 
     <!-- container for 5 day forecast -->
-    <div class="row" id="five-day-forecast">
- 
-             <div class="col-6 mr-auto weekly-title">
-                 <h3 class="text-center">5 day forecast</h3>
-             </div>
+    <div class="row">
  
              <div class="row m-2 justify-content-betweeen" id="display-each-card">
- 
- 
-            <div class="col-4 p-1">
-             <div class="card m-2 w-100">
-                 <span src="" alt="" class="card-img-rainy">
-                 </span>
-                 <div class="card-body p-1">
-                     <h3 class="card-title text-center border-bottom">asdfa</h3>
-                     <ul style="list-style: none;" class="p-2 text-left">
-                         <li>asdf: asdfasdfasdfa</li>
-                         <li>asdf</li>
-                         <li>asdf</li>
-                         <li>asdf</li>
-                     </ul>
-                 </div>
-                </div>
-            </div>
-
-
  
             </div>
            
     </div>
-
-        </div>
+   </div>
 
     </div>
 
-</div>
+    </div>
 
-    <script src="./assets/js/script.js"></script>
+        <!-- use day.js to easily format dates -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+        integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+        crossorigin="anonymous"
+      ></script>
+      <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
+        integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
+        crossorigin="anonymous"
+      ></script>
+      <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
+        integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
+        crossorigin="anonymous"
+      ></script>
+      <script src="./assets/js/script.js"></script>
 </body>
 </html>
