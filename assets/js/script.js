@@ -1,4 +1,5 @@
 // Global var
+var historyStorage = [];
 var apiRoot = 'https://api.openweathermap.org';
 var apiRootWeather = 'https://api.openweathermap.org';
 var apiKey = 'b0af02ce6d6578e341aee9bf7fa71ce7';
@@ -6,16 +7,60 @@ var apiKey = 'b0af02ce6d6578e341aee9bf7fa71ce7';
 var fiveDayContainter = document.querySelector('#display-each-card');
 var todaysForecastContainer = document.querySelector('#todays-forecast');
 var cityTitle = document.querySelector('#city-title');
+var historyContainer = document.querySelector('#recents');
+var firstSearch = document.querySelector('#search-city');
+var cityInput = document.querySelector('#city-input')
 
 dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
 
 // function for when we search for a city
+function searchButtonClicker() {
+    console.log(localStorage)
+    historyContainer.innerHTML = '';
 
+    for (var i = historyStorage.length - 1; i >= 0; i--) {
+        var historyPlacer = document.createElement('div');
+        historyPlacer.setAttribute('class', 'card m-3 bg-dark');
+
+        var historyBody = document.createElement('div');
+        historyBody.setAttribute('class', 'card-body text-center');
+
+        var btn = document.createElement('button');
+        btn.setAttribute('class', 'card-text text-light bg-dark history-btn');
+        btn.setAttribute('data-search', historyStorage[i]);
+        btn.textContent = historyStorage[i];
+
+
+        historyBody.append(btn);
+        historyPlacer.append(historyBody);
+        historyContainer.append(historyPlacer);
+    }
+}
+
+function startHistorySearch() {
+    var checkHistory = localStorage.getItem('history');
+
+    if (checkHistory) {
+        historyStorage = JSON.parse(checkHistory);
+    }
+
+    searchButtonClicker();
+}
 
 // componets for saving already searchedcity for history
+function addToHistory(search) {
 
+        if (historyStorage.indexOf(search) !== -1) {
+            return;
+        }
+        historyStorage.push(search);
+    
+        localStorage.setItem('history', JSON.stringify(historyStorage));
+        searchButtonClicker();
+
+}
 
 function dispalyTodaysWeather(city, weather, timezone) {
 
@@ -41,6 +86,7 @@ function dispalyTodaysWeather(city, weather, timezone) {
     humidityList.textContent = `Humidity: ${humidity}%`;
 
     listToday.append(tempList, windList, humidityList);
+    todaysForecastContainer.innerHTML = '';
     todaysForecastContainer.append(listToday);
 }
 
@@ -115,6 +161,7 @@ function displayFiveDayForecast(dailyForecast, timezone) {
     headerDiv.setAttribute('class', 'col-12 mr-auto show-city-name border-bottom');
 
     headerDiv.append(cityEl);
+    fiveDayContainter.innerHTML = '';
     fiveDayContainter.append(headerDiv);
 
 
@@ -148,7 +195,6 @@ function getApiInfo(location) {
         if (response.ok) {
             response.json().then(function(data) {
                 cityTitle.textContent = `${city}`;
-
                 displayItems(city, data);
             })
         }
@@ -164,6 +210,7 @@ function apiGeoCode(search) {
     // request was successful
     if (response.ok) {
       response.json().then(function(data) {
+        addToHistory(search);
         getApiInfo(data[0]);
       });
     } else {
@@ -173,12 +220,28 @@ function apiGeoCode(search) {
 
 }
 
-function grabAndSearch() {
+function grabAndSearch(e) {
 
-    var cityInput = document.getElementById('city-input');
+    if (!cityInput.value) {
+        return;
+    }
+    e.preventDefault();
     var search = cityInput.value.trim();
-
     apiGeoCode(search);
     cityInput.value = '';
 
 };
+
+function initSearch(e) {
+    if(!e.target.matches('.history-btn')) {
+        return;
+    }
+
+    var btn = e.target;
+    var search= btn.getAttribute('data-search');
+    apiGeoCode(search);
+}
+
+startHistorySearch();
+firstSearch.addEventListener('click', grabAndSearch);
+historyContainer.addEventListener('click', initSearch);

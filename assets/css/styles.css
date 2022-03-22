@@ -10,3 +10,13 @@
     height: 4rem;
     width: 4rem;
 }
+
+.history-btn {
+    outline: none;
+    border: none;
+}
+
+.history-btn::after {
+    font-size: large;
+    outline: none;
+}
