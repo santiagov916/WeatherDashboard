@@ -26,7 +26,7 @@
 
   ## Usage
 
-  heroku deployed, enjoy!
+  download starter zip and run on a live server!
 
   ## Installation 
 
